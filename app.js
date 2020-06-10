@@ -16,7 +16,9 @@ const url = "https://api.openweathermap.org/data/2.5/weather?q=London&appid=86ad
     response.on("data", function(data){
       const weatherData = JSON.parse(data);
       const temp = weatherData.main.temp;
+      const weatherDescription = weatherData.weather[0].description;
       console.log(temp);
+      console.log(weatherDescription);
     })
   })
   res.send("Server is up and running!");
