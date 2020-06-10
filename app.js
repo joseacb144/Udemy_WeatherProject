@@ -7,7 +7,7 @@ const app = express();
 
 app.get("/",function(req, res){
 // The link is long so I assigned it to constant url
-const url = "https://api.openweathermap.org/data/2.5/weather?q=London&appid=86adea560ce2c6405450b6a93f97e7d9&units=metric";
+const url = "https://api.openweathermap.org/data/2.5/weather?q=London&appid=86adea560ce2c6405450b6a93f97e7d9&units=imperial";
   // Get the weather API data
   https.get(url, function(response){
     console.log(response.statusCode);
@@ -25,7 +25,7 @@ const url = "https://api.openweathermap.org/data/2.5/weather?q=London&appid=86ad
       const iconURL = "https://openweathermap.org/img/wn/" + icon + "@2x.png";
 
       res.write("<p>The weather is currently " + weatherDescription + "<p>");
-      res.write("<h1>The temperature in London is " + temp + " degrees Celcius.</h1>");
+      res.write("<h1>The temperature in London is " + temp + " degrees Fahrenheit.</h1>");
       res.write("<img src=" + iconURL +">");
 
       res.send();
